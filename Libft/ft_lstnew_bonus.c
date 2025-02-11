@@ -1,22 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvez-dia <lvez-dia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 17:03:19 by lvez-dia          #+#    #+#             */
-/*   Updated: 2024/12/20 16:31:17 by lvez-dia         ###   ########.fr       */
+/*   Created: 2024/04/28 10:58:27 by lvez-dia          #+#    #+#             */
+/*   Updated: 2024/04/28 12:38:52 by lvez-dia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+t_list	*ft_lstnew(void *content)
 {
-	int	num;
-	if (argv != 2)
-		return ;
-	if (num > INT_MAX && num < INT_MIN)
-		return ;
+	t_list	*node;
+
+	node = malloc(sizeof(t_list));
+	if (node == NULL)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }
+
+/*
+int	main()
+{
+	char *c;
+	t_list *f;
+
+	c = "42";
+	f = ft_lstnew(c);
+	printf("Return: %s \n", f -> content);
+
+	return(0);
+}*/

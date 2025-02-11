@@ -1,27 +1,32 @@
 NAME = push_swap
 
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-RM = rm -rf 
+RM = rm -f 
 
-SRC = main.c push_swap_utils.c more_utils.c movements.c\
+SRC =  prueba.c
 
-OBJ = $(SRC:.c =.o)
+LIB = Libft/libft.a
+
+OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
 	@echo "${CIAN}Compiling...${NC}"
-	@$(CC) $(CFLAGS) $(OBJ)
+	@$(MAKE) -C Libft
+	@$(CC) $(CFLAGS) $(OBJ) $(LIB) -o $(NAME)
 	@echo "${LGREEN}Program compiled✅${NC}"
 
 clean :
+	@$(MAKE) clean -C Libft
 	@$(RM) $(OBJ)
 	@echo "${MAGENTA}Objects deleted🧹${NC}"
 
 fclean : clean
+	@$(MAKE) fclean -C Libft
 	@$(RM) $(NAME)
 	@echo "${MAGENTA}All clean✨${NC}"
 

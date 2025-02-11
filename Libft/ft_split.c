@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvez-dia <lvez-dia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 17:05:59 by lvez-dia          #+#    #+#             */
-/*   Updated: 2024/12/20 16:17:13 by lvez-dia         ###   ########.fr       */
+/*   Created: 2024/04/19 19:00:20 by lvez-dia          #+#    #+#             */
+/*   Updated: 2025/02/07 12:24:59 by lvez-dia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-static void	*ft_empty_array(char **array, size_t words)
+void	*ft_empty_array(char **array, size_t words)
 {
 	size_t	i;
 
@@ -26,7 +26,7 @@ static void	*ft_empty_array(char **array, size_t words)
 	return (NULL);
 }
 
-static size_t	ft_count_words(char *buffer, char c)
+size_t	ft_count_words(char *buffer, char c)
 {
 	size_t	i;
 	size_t	words;
@@ -47,7 +47,7 @@ static size_t	ft_count_words(char *buffer, char c)
 	return (words);
 }
 
-static void	ft_fill_array(char *array, char *buffer, size_t start, size_t end)
+void	ft_fill_array(char *array, char *buffer, size_t start, size_t end)
 {
 	size_t	i;
 
@@ -61,7 +61,7 @@ static void	ft_fill_array(char *array, char *buffer, size_t start, size_t end)
 	array[i] = '\0';
 }
 
-static char	**ft_split_continuo(char *str, char **array, char c, int end)
+char	**ft_split_continuo(char *str, char **array, char c, int end)
 {
 	size_t	i;
 	size_t	start;
@@ -103,3 +103,16 @@ char	**ft_split(char const *s, char c)
 	array = NULL;
 	return (ft_split_continuo(str, array, c, end));
 }
+
+/*int	main(void)
+{
+	char **f = ft_split(NULL, 'o');
+	if (f)
+	{
+		for (int i = 0; f[i] != NULL; i++)
+		{
+    		printf("%s\n", f[i]);
+		}
+	}
+    return (0);
+}*/
