@@ -6,7 +6,7 @@
 /*   By: lvez-dia <lvez-dia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 16:58:19 by lvez-dia          #+#    #+#             */
-/*   Updated: 2025/02/07 11:01:53 by lvez-dia         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:05:30 by lvez-dia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 # define PUSH_SWAP_H
 
 #include "./Libft/libft.h"
-# include <stdio.h>
-# include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <ctype.h>
+#include <string.h>
+#include <stdint.h>
+#include <limits.h>
 
 typedef struct s_node
 {
@@ -50,9 +55,21 @@ typedef struct s_stack
 //size_t			ft_strlen(const char *s);
 //void			*ft_memset(void *b, int c, size_t len);
 //void			*ft_calloc(size_t count, size_t size);
+int				is_only_spaces(char *str);
+int				print_str(char *s);
+int				error(void);
 char			*join_space(char const *s1, char const *s2, char *str);
+void			check_string(char **nums);
 int				ft_strcmp(const char *s1, const char *s2);
-void			compare(char **nums);
+int				numeric(char *str);
 int				num(char *str);
-//int				ft_atoi(const char *str);
+int				non_numeric(char *str);
+int				ft_is_sorted(char **nums);
+char			*initialize_cadena(void);
+char			*process_arguments(int argc, char **argv);
+void			process_nums(char **nums);
+int				ft_new_atoi(const char *str);
+void			compare(char **nums);
+//t_stack	*ft_create_stack(void)
+//t_node	*ft_create_node(int	value)
 #endif

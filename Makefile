@@ -2,11 +2,11 @@ NAME = push_swap
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 RM = rm -f 
 
-SRC =  prueba.c
+SRC =  main.c char_utils.c num_utils.c error_utils.c \
 
 LIB = Libft/libft.a
 

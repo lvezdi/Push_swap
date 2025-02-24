@@ -6,7 +6,7 @@
 /*   By: lvez-dia <lvez-dia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 13:39:16 by lvez-dia          #+#    #+#             */
-/*   Updated: 2025/02/07 10:03:23 by lvez-dia         ###   ########.fr       */
+/*   Updated: 2025/02/24 18:01:22 by lvez-dia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,10 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				**ft_split(char const *s, char c);
 void				*ft_empty_array(char **array, size_t words);
 size_t				ft_count_words(char *buffer, char c);
-void				ft_fill_array(char *array, char *buffer, size_t start, size_t end);
-char				**ft_split_continuo(char *str, char **array, char c, int end);
+void				ft_fill_array(char *array, char *buffer, size_t start,
+						size_t end);
+char				**ft_split_continuo(char *str, char **array, char c,
+						int end);
 
 t_list				*ft_lstnew(void *content);
 t_list				*ft_lstlast(t_list *lst);
