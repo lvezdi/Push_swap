@@ -6,7 +6,7 @@
 /*   By: lvez-dia <lvez-dia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 16:58:19 by lvez-dia          #+#    #+#             */
-/*   Updated: 2025/02/24 14:05:30 by lvez-dia         ###   ########.fr       */
+/*   Updated: 2025/02/25 16:22:28 by lvez-dia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,26 +35,10 @@ typedef struct s_stack
 	int		size;
 }	t_stack;
 
-// void			swap(t_stack *stack, char n);
-// void			rotate(t_stack *stack, char n);
-// void			riverse(t_stack *stack, char n);
-// void			push(t_stack *stack, char n);
-// void			new_stack(t_stack *stack);
-// void			delete_node(t_stack *stack);
-// //int				main(int argc, char **argv);
-// int				ft_atoi(const char *str);
-// int				is_in_range_of_int(char *next_n);
-// void			*ft_empty_array(char **array);
-// char			*join_space(char const *s1, char const *s2);
-// int				num(char *str);
-//void			*ft_empty_array(char **array, size_t words);
-//size_t			ft_count_words(char *buffer, char c);
-//void			ft_fill_array(char *array, char *buffer, size_t start, size_t end);
-//char			**ft_split_continuo(char *str, char **array, char c, int end);
-//char			**ft_split(char const *s, char c);
-//size_t			ft_strlen(const char *s);
-//void			*ft_memset(void *b, int c, size_t len);
-//void			*ft_calloc(size_t count, size_t size);
+void			swap(t_stack *stack, char n);
+void			rotate(t_stack *stack, char n);
+void			riverse(t_stack *stack, char n);
+void			push(t_stack *stack, char n);
 int				is_only_spaces(char *str);
 int				print_str(char *s);
 int				error(void);
@@ -70,6 +54,10 @@ char			*process_arguments(int argc, char **argv);
 void			process_nums(char **nums);
 int				ft_new_atoi(const char *str);
 void			compare(char **nums);
-//t_stack	*ft_create_stack(void)
-//t_node	*ft_create_node(int	value)
+t_stack			*ft_create_stack(void);
+t_node			*ft_create_node(int value);
+int				*process_numbers(int argc, char **argv, int *count);
+void			process_stack(t_stack *stack, int *numbers, int count);
+void			ft_bubblesort(int *array, int size);
+
 #endif

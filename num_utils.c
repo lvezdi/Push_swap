@@ -6,7 +6,7 @@
 /*   By: lvez-dia <lvez-dia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:57:55 by lvez-dia          #+#    #+#             */
-/*   Updated: 2025/02/24 14:00:11 by lvez-dia         ###   ########.fr       */
+/*   Updated: 2025/02/25 16:02:35 by lvez-dia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,19 +72,40 @@ int	ft_is_sorted(char **nums)
 	int	count;
 
 	count = 0;
-	// Calcular el tamaño (count) de nums
 	while (nums[count] != NULL)
 		count++;
 	i = 0;
 	while (i < (count - 1))
 	{
-		// Convertimos los valores de nums[i] y nums[i+1] a enteros
 		num1 = ft_new_atoi(nums[i]);
 		num2 = ft_new_atoi(nums[i + 1]);
-		// Comprobamos si los números no están ordenados
 		if (num1 > num2)
 			return (0);
 		i++;
 	}
 	return (1);
+}
+
+void	ft_bubblesort(int *array, int size)
+{
+	int	i;
+	int	j;
+	int	temp;
+
+	i = 0;
+	while (i < size - 1)
+	{
+		j = 0;
+		while (i < size - i - 1)
+		{
+			if (array[j] > array[j + 1])
+			{
+				temp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = temp;
+			}
+			j++;
+		}
+		i++;
+	}
 }

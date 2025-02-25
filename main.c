@@ -6,116 +6,91 @@
 /*   By: lvez-dia <lvez-dia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 11:24:33 by lvez-dia          #+#    #+#             */
-/*   Updated: 2025/02/24 14:02:41 by lvez-dia         ###   ########.fr       */
+/*   Updated: 2025/02/25 16:23:02 by lvez-dia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*initialize_cadena(void)
-{
-	char	*cadena;
-
-	cadena = ft_calloc(1, sizeof(char));
-	if (!cadena)
-		return (NULL);
-	return (cadena);
-}
-
-char	*process_arguments(int argc, char **argv)
+int	*process_numbers(int argc, char **argv, int *count)
 {
 	int		i;
-	int		j;
-	char	*cadena;
+	char	**nums;
+	int		*numbers;
 
-	i = 1;
-	j = 0;
-	cadena = initialize_cadena();
-	while (i < argc)
+	*count = 0;
+	if (argc < 2)
+		return (0);
+	nums = ft_split(process_arguments(argc, argv), ' ');
+	if (!nums)
+		return (NULL);
+	while (nums[*count] != NULL)
+		(*count)++;
+	numbers = (int *)malloc(*count * sizeof(int));
+	if (!numbers)
 	{
-		if (argv[i][j] == '\0' || is_only_spaces(argv[i]))
-		{
-			free(cadena);
-			error();
-		}
-		cadena = join_space(cadena, argv[i], cadena);
+		ft_empty_array(nums, *count);
+		return (NULL);
+	}
+	process_nums(nums);
+	i = 0;
+	while (i < *count)
+	{
+		numbers[i] = ft_new_atoi(nums[i]);
+		printf(" %d: %d\n", i + 1, numbers[i]);
 		i++;
 	}
-	return (cadena);
+	ft_bubblesort(numbers, *count);
+	ft_empty_array(nums, *count);
+	return (numbers);
 }
 
-void	process_nums(char **nums)
+void	process_stack(t_stack *stack, int *numbers, int count)
 {
-	int	i;
+	int		i;
+	t_node	*new_node;
 
 	i = 0;
-	check_string(nums);
-	compare(nums);
-	while (nums[i] != NULL)
+	while (i < count)
 	{
-		if (numeric(nums[i]) == -1)
-			error();
+		new_node = ft_create_node(numbers[i]);
+		if (!new_node)
+			return ;
+		ft_lstadd_back(&(stack->head), new_node);
+		stack->size++;
 		i++;
 	}
-	if (ft_is_sorted(nums))
-		exit (0);
+	new_node = stack->head;
+	while (new_node)
+		new_node = new_node->next;
+	while (stack->head)
+	{
+		new_node = stack->head;
+		stack->head = stack->head->next;
+		free(new_node);
+	}
 }
 
 int	main(int argc, char **argv)
 {
-	int		i;
-	char	*cadena;
-	char	**nums;
-	int		number;
-	//t_list 	*stack_a;
-
-	if (argc < 2)
-		return (0);
-	cadena = process_arguments(argc, argv);
-	nums = ft_split(cadena, ' ');
-	if (!nums)
-		return (1);
-	process_nums(nums);
-	i = 0;
-	while (nums[i] != NULL)
-	{
-		number = ft_new_atoi(nums[i]);
-		printf("Number %d: %d\n", i + 1, number);
-		i++;
-	}
-	free(cadena);
-	ft_empty_array(nums, i);
-	return (0);
-}
-
-// METER NUMEROS AL STACK
-
-
-t_stack	*ft_create_stack(void)
-{
+	int		*numbers;
+	int		count;
 	t_stack	*stack;
 
-	stack = (t_stack *)malloc(sizeof(t_stack));
+	numbers = process_numbers(argc, argv, &count);
+	if (!numbers)
+		return (1);
+	stack = ft_create_stack();
 	if (!stack)
-		return (NULL);
-	stack->head = NULL;
-	stack->size = 0;
-	return (stack);
+	{
+		free(numbers);
+		return (1);
+	}
+	process_stack(stack, numbers, count);
+	free(numbers);
+	free(stack);
+	return (0);
 }
-
-t_node	*ft_create_node(int	value)
-{
-	t_node	*node;
-
-	node = (t_node *)malloc(sizeof(t_node));
-	if (!node)
-		return (NULL);
-	node->data = value;
-	node->next = NULL;
-	return (node);
-}
-
-//void	ft_lstadd
 
 /*
 1º join_space = que el join de la libft pero en la reserva de memoria 
