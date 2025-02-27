@@ -6,7 +6,7 @@
 /*   By: lvez-dia <lvez-dia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 11:24:33 by lvez-dia          #+#    #+#             */
-/*   Updated: 2025/02/25 16:23:02 by lvez-dia         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:19:48 by lvez-dia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	*process_numbers(int argc, char **argv, int *count)
 		printf(" %d: %d\n", i + 1, numbers[i]);
 		i++;
 	}
-	ft_bubblesort(numbers, *count);
 	ft_empty_array(nums, *count);
 	return (numbers);
 }
@@ -81,6 +80,9 @@ int	main(int argc, char **argv)
 	if (!numbers)
 		return (1);
 	stack = ft_create_stack();
+	//list???
+	//ft_bubblesort(numbers, *count);
+	//while
 	if (!stack)
 	{
 		free(numbers);

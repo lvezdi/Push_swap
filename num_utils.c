@@ -6,7 +6,7 @@
 /*   By: lvez-dia <lvez-dia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:57:55 by lvez-dia          #+#    #+#             */
-/*   Updated: 2025/02/25 16:02:35 by lvez-dia         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:20:30 by lvez-dia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,28 +84,4 @@ int	ft_is_sorted(char **nums)
 		i++;
 	}
 	return (1);
-}
-
-void	ft_bubblesort(int *array, int size)
-{
-	int	i;
-	int	j;
-	int	temp;
-
-	i = 0;
-	while (i < size - 1)
-	{
-		j = 0;
-		while (i < size - i - 1)
-		{
-			if (array[j] > array[j + 1])
-			{
-				temp = array[j];
-				array[j] = array[j + 1];
-				array[j + 1] = temp;
-			}
-			j++;
-		}
-		i++;
-	}
 }

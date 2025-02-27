@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 RM = rm -f 
 
-SRC =  main.c char_utils.c num_utils.c error_utils.c movements.c process_num_stack.c\
+SRC =  main.c char_utils.c num_utils.c error_utils.c movements.c movements_both.c process_num_stack.c others.c\
 
 LIB = Libft/libft.a
 

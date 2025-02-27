@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   listas.c                                           :+:      :+:    :+:   */
+/*   process_num_stack.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvez-dia <lvez-dia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 11:28:07 by lvez-dia          #+#    #+#             */
-/*   Updated: 2025/02/25 16:03:45 by lvez-dia         ###   ########.fr       */
+/*   Created: 2025/02/27 17:14:31 by lvez-dia          #+#    #+#             */
+/*   Updated: 2025/02/27 18:25:01 by lvez-dia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ t_stack	*ft_create_stack(void)
 	return (stack);
 }
 
-t_node	*ft_create_node(int	value)
+t_node	*ft_create_node(int value)
 {
 	t_node	*node;
 

@@ -6,7 +6,7 @@
 /*   By: lvez-dia <lvez-dia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 16:58:19 by lvez-dia          #+#    #+#             */
-/*   Updated: 2025/02/25 16:22:28 by lvez-dia         ###   ########.fr       */
+/*   Updated: 2025/02/27 18:04:39 by lvez-dia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,13 @@ typedef struct s_stack
 	int		size;
 }	t_stack;
 
-void			swap(t_stack *stack, char n);
-void			rotate(t_stack *stack, char n);
-void			riverse(t_stack *stack, char n);
-void			push(t_stack *stack, char n);
+void			swap(t_stack *stack, char n, int b);
+void			rotate(t_stack *stack, char n, int b);
+void			riverse(t_stack *stack, char n, int b);
+void			push(t_stack *from_stack, t_stack *to_stack, char n, int b);
+void			swap_both(t_stack *stack_a, t_stack *stack_b);
+void			rotate_both(t_stack *stack_a, t_stack *stack_b);
+void			ops_reverse_both(t_stack *stack_a, t_stack *stack_b);
 int				is_only_spaces(char *str);
 int				print_str(char *s);
 int				error(void);
@@ -59,5 +62,6 @@ t_node			*ft_create_node(int value);
 int				*process_numbers(int argc, char **argv, int *count);
 void			process_stack(t_stack *stack, int *numbers, int count);
 void			ft_bubblesort(int *array, int size);
+int				index(int n, int *array);
 
 #endif
