@@ -48,7 +48,7 @@ BONUS_SRC	=	ft_lstnew_bonus.c \
 
 BONUS_OBJ	=	$(BONUS_SRC:.c=.o)
 
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 

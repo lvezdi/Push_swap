@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lists.c                                            :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvez-dia <lvez-dia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 10:59:37 by lvez-dia          #+#    #+#             */
-/*   Updated: 2025/03/07 13:25:17 by lvez-dia         ###   ########.fr       */
+/*   Updated: 2025/03/10 16:24:35 by lvez-dia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_stack	*ft_create_stack(void)
 	return (stack);
 }
 
-void	init_stack(t_stack *stack, int *num, int count)
+void	initialize_stack(t_stack *stack, int *num, int count)
 {
 	int	i;
 
@@ -32,12 +32,12 @@ void	init_stack(t_stack *stack, int *num, int count)
 	i = count - 1;
 	while (i >= 0)
 	{
-		lst_add(stack, num[i], 0);
+		add_node_to_stack(stack, num[i], 0);
 		i--;
 	}
 }
 
-void	lst_add(t_stack *stack, int data, int index)
+void	add_node_to_stack(t_stack *stack, int data, int index)
 {
 	t_node	*node;
 

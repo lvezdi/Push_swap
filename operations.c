@@ -6,7 +6,7 @@
 /*   By: lvez-dia <lvez-dia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:14:47 by lvez-dia          #+#    #+#             */
-/*   Updated: 2025/03/07 12:15:57 by lvez-dia         ###   ########.fr       */
+/*   Updated: 2025/03/10 16:04:39 by lvez-dia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	push(t_stack *from_stack, t_stack *to_stack, char n)
 		return ;
 	index = from_stack->head->s_index;
 	data = del_stack(from_stack);
-	lst_add(to_stack, data, index);
+	add_node_to_stack(to_stack, data, index);
 	write(1, "p", 1);
 	write(1, &n, 1);
 	write(1, "\n", 1);

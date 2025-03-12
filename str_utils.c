@@ -6,7 +6,7 @@
 /*   By: lvez-dia <lvez-dia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:56:39 by lvez-dia          #+#    #+#             */
-/*   Updated: 2025/03/07 13:19:59 by lvez-dia         ###   ########.fr       */
+/*   Updated: 2025/03/10 16:01:49 by lvez-dia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	is_only_spaces(char *str)
 	return (1);
 }
 
-char	*join_space(char *s1, const char *s2)
+char	*join_with_space(char *s1, const char *s2)
 {
 	int		i;
 	int		j;
@@ -51,7 +51,7 @@ char	*join_space(char *s1, const char *s2)
 	return (str);
 }
 
-void	check_string(char **nums)
+void	check_string(char **nums, int count)
 {
 	int	i;
 
@@ -59,12 +59,15 @@ void	check_string(char **nums)
 	while (nums[i] != NULL)
 	{
 		if (is_only_spaces(nums[i]))
+		{
+			ft_empty_array(nums, count);
 			error();
+		}
 		i++;
 	}
 }
 
-void	compare(char **nums)
+void	check_duplicates(char **nums, int count)
 {
 	int	i;
 	int	j;
@@ -74,13 +77,16 @@ void	compare(char **nums)
 	i = 0;
 	while (nums[i])
 	{
-		num1 = ft_atoi(nums[i]);
+		num1 = ft_new_atoi(nums[i], nums, count);
 		j = i + 1;
 		while (nums[j])
 		{
-			num2 = ft_atoi(nums[j]);
+			num2 = ft_new_atoi(nums[j], nums, count);
 			if (num1 == num2)
+			{
+				ft_empty_array(nums, count);
 				error();
+			}
 			j++;
 		}
 		i++;

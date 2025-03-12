@@ -2,11 +2,11 @@ NAME = push_swap
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f 
 
-SRC =  main.c char_utils.c num_utils.c error_utils.c movements.c process_num_stack.c others.c lists.c algorithms.c sort.c\
+SRC =  main.c str_utils.c num_utils.c error_utils.c operations.c processing.c indexing.c stack_utils.c sorting_algorithms.c basic_sorting.c\
 
 LIB = Libft/libft.a
 

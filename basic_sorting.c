@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   basic_sorting.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvez-dia <lvez-dia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 16:01:12 by lvez-dia          #+#    #+#             */
-/*   Updated: 2025/03/07 13:26:23 by lvez-dia         ###   ########.fr       */
+/*   Updated: 2025/03/12 10:33:20 by lvez-dia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	is_stack_sorted(t_stack *stack)
 	return (1);
 }
 
-// 3 nums
 void	simple_sort(t_stack *stack, int length)
 {
 	int	min_s_index;
@@ -75,7 +74,6 @@ void	simple_sort(t_stack *stack, int length)
 	}
 }
 
-//4 a 7 nums
 void	s_insertion_sort(t_stack *stack_a, t_stack *stack_b, int length)
 {
 	int	min_index;

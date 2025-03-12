@@ -6,13 +6,13 @@
 /*   By: lvez-dia <lvez-dia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:57:55 by lvez-dia          #+#    #+#             */
-/*   Updated: 2025/03/07 13:20:28 by lvez-dia         ###   ########.fr       */
+/*   Updated: 2025/03/10 15:25:34 by lvez-dia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	numeric(char *str)
+int	numeric(char *str, char **nums, int count)
 {
 	size_t	i;
 
@@ -23,20 +23,16 @@ int	numeric(char *str)
 	while (str[i] != '\0')
 	{
 		if (str[i] < '0' || str[i] > '9')
+		{
+			ft_empty_array(nums, count);
 			error();
+		}
 		i++;
 	}
 	return (1);
 }
 
-int	non_numeric(char *str)
-{
-	if (!numeric(str))
-		error();
-	return (1);
-}
-
-int	ft_new_atoi(const char *str)
+int	ft_new_atoi(const char *str, char **nums, int count)
 {
 	int		i;
 	int		sign;
@@ -59,26 +55,35 @@ int	ft_new_atoi(const char *str)
 		i++;
 	}
 	result = sign * result;
-	if (result < INT32_MIN || result > INT32_MAX)
-		error();
+	result = ft_atoi_int(result, nums, count);
 	return (result);
 }
 
-int	ft_is_sorted(char **nums)
+int	ft_atoi_int(long result, char **nums, int count)
+{
+	if (result < INT32_MIN || result > INT32_MAX)
+	{
+		ft_empty_array(nums, count);
+		error();
+	}
+	return ((int) result);
+}
+
+int	ft_is_sorted(char **nums, int count)
 {
 	int	i;
 	int	num1;
 	int	num2;
-	int	count;
+	int	cnt;
 
-	count = 0;
-	while (nums[count] != NULL)
-		count++;
+	cnt = 0;
+	while (nums[cnt] != NULL)
+		cnt++;
 	i = 0;
-	while (i < (count - 1))
+	while (i < (cnt - 1))
 	{
-		num1 = ft_new_atoi(nums[i]);
-		num2 = ft_new_atoi(nums[i + 1]);
+		num1 = ft_new_atoi(nums[i], nums, count);
+		num2 = ft_new_atoi(nums[i + 1], nums, count);
 		if (num1 > num2)
 			return (0);
 		i++;

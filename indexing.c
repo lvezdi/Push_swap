@@ -6,7 +6,7 @@
 /*   By: lvez-dia <lvez-dia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 18:08:02 by lvez-dia          #+#    #+#             */
-/*   Updated: 2025/03/07 13:24:54 by lvez-dia         ###   ########.fr       */
+/*   Updated: 2025/03/10 16:06:19 by lvez-dia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	ft_index(int n, int *array)
 	return (i);
 }
 
-void	asigne_index(t_stack *stack_a, int *numbers, int count)
+void	assign_index(t_stack *stack_a, int *numbers, int count)
 {
 	t_node	*temp;
 
